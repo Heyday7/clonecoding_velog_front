@@ -1,22 +1,30 @@
-import logo from './logo.svg';
+import React from 'react'
+import {Route, Switch} from 'react-router-dom'
+// import Header from './components/common/Header'
+import About from './containers/About'
+import LoginFormContainer from './containers/account/LoginFormContainer'
+import SignUpFormContainer from './containers/account/SignUpFormContianer'
+import HeaderContainer from './containers/common/HeaderContainer'
+import Post from './containers/post/Post'
+import PostDetail from './containers/post/PostDetail'
+import PostFormContainer from './containers/post/PostFormContainer'
+import Series from './containers/series/Series'
+import SeriesDetail from './containers/series/SeriesDetail'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Route path='/' component={HeaderContainer}/>
+      <Switch>
+        <Route exact path='/' component={Post}/>
+        <Route exact path='/series' component={Series}/>
+        <Route path='/series/:id' component={SeriesDetail}/>
+        <Route path='/about' component={About}/>
+        <Route exact path='/post/:id' component={PostDetail}/>
+        <Route exact path='/create-post/' component={PostFormContainer}/>
+        <Route exact path='/signup/' component={SignUpFormContainer}/>
+        <Route exact path='/login/' component={LoginFormContainer}/>
+      </Switch>
     </div>
   );
 }
