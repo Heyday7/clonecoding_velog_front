@@ -1,8 +1,13 @@
 import {combineReducers} from 'redux'
-import {loginReducer} from './User/login'
+import {authReducer} from './auth/Auth'
+
+// export const initialState = {
+//   isLogin: false,
+//   username: ''
+// }
 
 const reducer = combineReducers({
-  loginReducer,
+  authReducer,
 })
 
 export default reducer
