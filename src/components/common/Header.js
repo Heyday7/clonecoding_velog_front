@@ -14,7 +14,7 @@ class Header extends Component {
           </div>
           <div>
             <div> search </div>
-            <Link to='/craete-post'> 새 글 작성</Link>
+            <Link to='/create-post'> 새 글 작성</Link>
             <div> {this.props.username}</div>
           </div>
         </>
@@ -26,7 +26,7 @@ class Header extends Component {
           </div>
           <div>
             <div> search </div>
-            <Link to='/craete-post'> 로그인 후 글을 작성 가능합니다.</Link>
+            <Link to='/create-post'> 로그인 후 글을 작성 가능합니다.</Link>
             <div> 비로그인상태</div>
           </div>
         </>
