@@ -1,13 +1,17 @@
 import {combineReducers} from 'redux'
 import {authReducer} from './auth/Auth'
 
-// export const initialState = {
-//   isLogin: false,
-//   username: ''
-// }
+import {persistReducer} from 'redux-persist'
+import storage from 'redux-persist/lib/storage/session'
 
-const reducer = combineReducers({
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ["authReducer"]
+}
+
+const rootReducer = combineReducers({
   authReducer,
 })
 
-export default reducer
+export default persistReducer(persistConfig, rootReducer)
