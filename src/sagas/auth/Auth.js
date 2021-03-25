@@ -11,7 +11,7 @@ const tryLogin = async (user) => {
 }
 
 const tryLogout = async () => {
-  return await axios.post('/logout/')
+  return await axios.post('/logout/', undefined, {withCredentials:true})
 }
 
 const trySignUp = async (user) => {
@@ -39,9 +39,13 @@ function* fetchCallLogin(action) {
 function* fetchCallLogout (action) {
   try {
     yield call(tryLogout)
-    yield put(CALL_LOGOUT_SUCCESS)
+    yield put({
+      type: CALL_LOGOUT_SUCCESS
+    })
   } catch (e) {
-    yield put(CALL_LOGOUT_FAIL)
+    yield put({
+      type: CALL_LOGOUT_FAIL
+    })
   }
 }
 
@@ -49,7 +53,7 @@ function* fetchCallSignUp (action) {
   try {
     yield call(trySignUp, action.user)
     yield put({
-      type:CALL_SIGNUP_SUCCESS
+      type: CALL_SIGNUP_SUCCESS
     })
   } catch (e) {
     yield put({

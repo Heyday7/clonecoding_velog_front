@@ -20,6 +20,7 @@ export const authReducer = (state=initialState, action) => {
       }
     case CALL_LOGIN_FAIL:
       return {...state}
+      
     case CALL_LOGOUT:
       return {...state}
     case CALL_LOGOUT_SUCCESS:
@@ -29,13 +30,15 @@ export const authReducer = (state=initialState, action) => {
       }
     case CALL_LOGOUT_FAIL:
       return {...state}
+
     case CALL_SIGNUP:
       return {...state}
     case CALL_SIGNUP_SUCCESS:
       return {...state}
     case CALL_SIGNUP_FAIL:
       return {...state}
+
     default:
-      return {...state}
+      return state
   }
 }
