@@ -8,10 +8,11 @@ import Header from '../../components/common/Header'
 class HeaderContainer extends Component {
   render () {
     return (
-      <>
-      <Header isLogin={this.props.isLogin} username={this.props.username}/>
-      <LogoutButton logout={this.props.logout}/>
-      </>
+      <Header 
+        isLogin={this.props.isLogin} 
+        username={this.props.username} 
+        logoutButton={<LogoutButton logout={this.props.logout}/>}
+      />
     )
   }
 }

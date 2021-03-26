@@ -3,6 +3,7 @@ import axios from 'axios'
 import PostList from '../../components/post/PostList'
 import NavBar from '../../components/common/NavBar'
 import Profile from '../../components/common/Profile'
+import TagList from '../tag/TagList'
 
 
 class Post extends Component {
@@ -21,10 +22,10 @@ class Post extends Component {
     return (
       <>
         <Profile/>
-        <NavBar/>
+        <NavBar where={0}/>
         <div id='post-container'>
-          <div>tag</div>
-          <PostList postList={this.state.postList} />
+          <TagList style={{margin:'auto', display:'block', width:900}}/>
+          <PostList postList={this.state.postList}/>
         </div>
       </>
     )

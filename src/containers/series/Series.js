@@ -21,7 +21,7 @@ class Series extends Component {
     return (
       <>
         <Profile/>
-        <NavBar/>
+        <NavBar where={1}/>
         <SeriesList seriesList={this.state.seriesList}/>
       </>
     )

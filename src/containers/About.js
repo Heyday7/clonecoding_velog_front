@@ -7,7 +7,7 @@ class About extends Component {
     return (
       <>
         <Profile/>
-        <NavBar/>
+        <NavBar where={2}/>
         <div> 소개입니다 </div>
       </>
     )
