@@ -1,39 +1,44 @@
-import React, {Component} from 'react'
+import { AppBar, IconButton, Toolbar, Typography, Button } from '@material-ui/core'
+import React from 'react'
 import { Link } from 'react-router-dom'
+import Cube from '../../assets/cube.png'
 
-class Header extends Component {
-  render() {
-    const isLogin = this.props.isLogin
-    return (
-      <div id='header'>
-      { isLogin ? 
-        <>
-          <div>
-            <Link to='/'>icon</Link>
-            <Link to='/'>{this.props.username}.io</Link>
-          </div>
-          <div>
-            <div> search </div>
-            <Link to='/create-post'> 새 글 작성</Link>
-            <div> {this.props.username}</div>
-          </div>
-        </>
-        :
-        <>
-        <div>
-            <Link to='/'>icon</Link>
-            <Link to='/'>Telog.io</Link>
-          </div>
-          <div>
-            <div> search </div>
-            <Link to='/create-post'> 로그인 후 글을 작성 가능합니다.</Link>
-            <div> 비로그인상태</div>
-          </div>
-        </>
-      }
-      </div>
-    )
-  }
+function Header(props) {
+  const isLogin = props.isLogin
+  return (
+    <div className='header'>
+    { isLogin ?
+      <AppBar position='static'>
+        <Toolbar>
+          <IconButton edge='start' style={{marginRight: 16}} color='inherit'>
+            <Link to='/'>
+              <img src={Cube} style={{ width: 32, height: 32}} alt=''/>
+            </Link>
+          </IconButton>
+          <Typography variant='h6' style={{flexGrow:1}}>
+            {props.username}.io
+          </Typography>
+          <Button color='inherit' component={Link} to='/create-post'>새 글 작성</Button>
+          {props.logoutButton}
+        </Toolbar>
+      </AppBar> 
+      :
+      <AppBar position='static'>
+        <Toolbar>
+          <IconButton edge='start' style={{marginRight: 16}} color='inherit'>
+            <img src={Cube} style={{ width: 32, height: 32}} alt=''/>
+          </IconButton>
+          <Typography variant='h6' style={{flexGrow:1}}>
+            Telog.io
+          </Typography>
+          <Button color='inherit' component={Link} to='/login'>Login</Button>
+          <Button color='inherit' component={Link} to='/signup'>SignUp</Button>
+        </Toolbar>
+      </AppBar> 
+    }
+    </div>
+  )
 }
+
 
 export default Header
