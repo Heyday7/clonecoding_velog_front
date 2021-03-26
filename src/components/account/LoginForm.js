@@ -1,20 +1,50 @@
-import React, {Component} from 'react'
+import React from 'react'
+import { Button, Paper, Grid, TextField, Typography } from '@material-ui/core'
 
-class LoginForm extends Component {
-  handleSubmit = (e) => {
+function LoginForm (props) {
+  const handleSubmit = (e) => {
     e.preventDefault()
-    this.props.tryLogin()
+    props.tryLogin()
   }
 
-  render () {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <input name='username' onChange={this.props.handleChange} placeholder='username'/>
-        <input name='password' onChange={this.props.handleChange} placeholder='password'/>
-        <button type='submit'>로그인</button>
+  return (
+    <div className='Login-form'>
+      <form onSubmit={handleSubmit}>
+        <Paper style={{padding:16, margin: 'auto', marginTop: 16, maxWidth:500}}>
+          <Typography variant='h4' align='center' gutterBottom> 로그인 </Typography>
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
+              <TextField 
+                fullWidth 
+                name='username' 
+                onChange={props.handleChange} 
+                placeholder='username'
+                required
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField 
+                fullWidth
+                name='password' 
+                onChange={props.handleChange} 
+                placeholder='password'
+              />
+            </Grid>
+            <Grid item>
+              <Button 
+                variant='contained' 
+                color='primary' 
+                type='submit'
+              >
+                로그인
+              </Button>
+            </Grid>
+          </Grid>
+        </Paper>
       </form>
-    )
-  }
+    </div>
+  )
+  
 }
 
 export default LoginForm
