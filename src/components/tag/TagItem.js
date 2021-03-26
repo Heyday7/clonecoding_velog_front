@@ -1,12 +1,11 @@
-import React, {Component} from 'react'
+import { Chip } from '@material-ui/core'
+import React from 'react'
 
 
-class TagItem extends Component {
-  render () {
-    return (
-      <div>{this.props.tag.name}</div>
-    )
-  }
+function TagItem(props) {
+  return (
+    <Chip style={{margin: 4}} color='primary' label={props.tag.name}/>
+  )
 }
 
 export default TagItem
