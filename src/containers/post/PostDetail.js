@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import React, {Component} from 'react'
 import SeriesNav from '../../components/series/SeriesNav'
@@ -37,6 +38,10 @@ class PostDetail extends Component {
           <SeriesNav series={this.state.series}/>
         }
         <div>{post.content}</div>
+        <Link to={{
+          pathname : `/post/${post.id}/edit`,
+          state: {post}
+        }}>수정하기</Link>
       </div>
     )
   }

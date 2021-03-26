@@ -5,9 +5,10 @@ import React from 'react'
 function PostForm(props) {
   const onSubmit = (e) => {
     e.preventDefault()
-    props.createPost()
+    props.editMode ? props.updatePost() :  props.createPost()
   }
 
+  const header = props.editMode ? '포스트 수정하기' : '새로운 포스트';
 
   return (
     <div className='Post-form'>
@@ -15,16 +16,17 @@ function PostForm(props) {
         <Paper style={{padding:16, maxWidth:600, margin:'auto', marginTop:'10%'}}>
           <Grid container spacing={3}>
             <Grid item>
-              <Typography variant='h3'>새로운 포스트</Typography>
+              <Typography variant='h3'>{header}</Typography>
             </Grid>
             <Grid item xs={12}>
               <Typography variant='h6'>제목</Typography>
                 <TextField 
                   fullWidth
-                  name='title' 
-                  label='제목을 입력해주세요'
-                  value={props.post.title} 
+                  name='title'
+                  placeholder='제목을 입력해주세요'
+                  defaultValue={props.post.title} // 버그가 있는 거 같다..
                   onChange={props.handleChange}
+                  autoComplete='off'
                 />
             </Grid>
             <Grid item xs={12}>
@@ -34,8 +36,8 @@ function PostForm(props) {
                 multiline
                 rows={10}
                 name='content' 
-                label='내용을 입력해주세요'
-                value={props.post.content} 
+                placeholder='내용을 입력해주세요'
+                defaultValue={props.post.content}
                 onChange={props.handleChange}
               />  
             </Grid>

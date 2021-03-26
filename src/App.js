@@ -1,6 +1,5 @@
 import React from 'react'
 import {Route, Switch} from 'react-router-dom'
-// import Header from './components/common/Header'
 import About from './containers/About'
 import LoginFormContainer from './containers/account/LoginFormContainer'
 import SignUpFormContainer from './containers/account/SignUpFormContianer'
@@ -21,6 +20,7 @@ function App() {
         <Route path='/series/:id' component={SeriesDetail}/>
         <Route path='/about' component={About}/>
         <Route exact path='/post/:id' component={PostDetail}/>
+        <Route exact path='/post/:id/edit' component={PostFormContainer}/>
         <Route exact path='/create-post/' component={PostFormContainer}/>
         <Route exact path='/signup/' component={SignUpFormContainer}/>
         <Route exact path='/login/' component={LoginFormContainer}/>
