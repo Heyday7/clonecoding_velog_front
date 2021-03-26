@@ -17,7 +17,6 @@ class TagList extends Component {
 
   getTagItem = async (tagId) => {
     const response = await axios.get(`/tag/${tagId}/`)
-    console.log(response.data)
     return response.data
   }
 
